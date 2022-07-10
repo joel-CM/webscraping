@@ -11,7 +11,10 @@ interface Result {
 }
 
 const api = async (req: any, res: any): Promise<Result> => {
-  const browser = await puppeteer.launch({ headless: true })
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  })
   const page = await browser.newPage()
   await page.goto('https://henaojara.com/ver/category/emision/')
   await page.waitForSelector('#tablepress-1 > tbody')
