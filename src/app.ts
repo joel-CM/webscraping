@@ -4,7 +4,7 @@ import api from './services/api'
 const app = express()
 
 // settings
-const PORT: number = 3001 ?? process.env?.PORT
+const PORT = process.env.PORT ?? 3001
 app.set('port', PORT)
 
 // middlewares
